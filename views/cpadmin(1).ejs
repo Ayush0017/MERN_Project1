@@ -1,0 +1,31 @@
+<% include adminheader %>
+
+<!-- start of main -->
+<div id="tooplate_main">
+    
+    <h1>Change password here!!!</h1>
+    <font color="blue"><%= output %></font>
+    <form method="post" action="/admin/cpadmin">
+        <div class="form-group">
+            <label>Old password</label>
+            <input type="password" class="form-control" name="opass" >
+        </div>
+        <br><br>
+        <div class="form-group">
+            <label>New password</label>
+            <input type="password" class="form-control" name="npass" >
+        </div>
+        <br><br>
+        <div class="form-group">
+            <label>Confirm new password</label>
+            <input type="password" class="form-control" name="cnpass" >
+        </div>
+        <br><br>
+        <button type="submit" class="btn btn-success">Change password</button>
+      </form>             
+
+</div>
+<div class="cleaner"></div>  
+<!-- end of main -->
+
+<% include footer %>

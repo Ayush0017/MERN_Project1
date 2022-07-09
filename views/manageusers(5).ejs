@@ -1,0 +1,56 @@
+<% include adminheader %>
+
+<!-- start of main -->
+<div id="tooplate_main">
+
+<center>    
+<h1>View & Manage Users</h1>
+
+<table>
+<tr>
+<th>RegID</th>
+<th>Name</th>
+<th>Email</th>
+<th>Address</th>
+<th>DOB</th>
+<th>Mobile</th>
+<th>City</th>
+<th>Gender</th>
+<th>Info</th>
+<th>Status</th>
+<th>Action</th>
+</tr>
+<tr><td colspan="11"><hr/></td></tr>
+<% for(let row of result) { %>
+<tr>
+<td><%= row._id %></td>
+<td><%= row.name %></td>
+<td><%= row.email %></td>
+<td><%= row.address %></td>
+<td><%= row.dob %></td>
+<td><%= row.mobile %></td>
+<td><%= row.city %></td>
+<td><%= row.gender %></td>
+<td><%= row.info %></td>
+<td>
+<% if(row.status) { %>
+<a href="" style="color:red;">Block User</a>
+<% } else { %>
+<a href="" style="color:green;">Verify User</a>
+<% } %>
+
+</td>
+<td><a href="">DELETE</a></td>
+</tr>
+<tr><td colspan="11"><hr/></td></tr>
+<% } %>
+
+</table>
+
+</center>
+
+</div>
+<div class="cleaner"></div>  
+<!-- end of main -->
+
+<% include footer %>

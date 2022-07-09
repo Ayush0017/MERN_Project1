@@ -1,0 +1,37 @@
+<% include adminheader %>
+
+<!-- start of main -->
+<div id="tooplate_main">
+
+<h2>Total funds raised : &#8377;<%= total_amount %></h2>
+
+<center>    
+<h1>Transaction Details Of Fund Raised</h1>
+
+<table border="2" cellspacing="5" cellpadding="5">
+<tr>
+<th>ID</th>
+<th>User ID</th>
+<th>TXN ID</th>
+<th>Amount</th>
+<th>Info</th>
+</tr>
+<% for(let row of result) { %>
+<tr>
+<td><%= row._id %></td>
+<td><%= row.uid %></td>
+<td><%= row.PayerID %></td>
+<td><%= row.amount %></td>
+<td><%= row.info %></td>
+</tr>
+<% } %>
+
+</table>
+
+</center>
+
+</div>
+<div class="cleaner"></div>  
+<!-- end of main -->
+
+<% include footer %>

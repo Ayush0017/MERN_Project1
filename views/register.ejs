@@ -1,0 +1,142 @@
+<% include header %>
+
+<script>
+
+function checkEmail(emailid)
+{
+
+  var xhttp = new XMLHttpRequest()  	   
+  xhttp.open("GET","http://localhost:3000/checkEmail?emailid="+emailid,true)
+  xhttp.send()
+  
+  
+  xhttp.onreadystatechange=function(){
+  		if(xhttp.status==200 && xhttp.readyState==4)
+  		{
+  			var ref=document.getElementById("response")
+  			var responseData=JSON.parse(xhttp.responseText)
+  			
+  			if(responseData.length==0)
+  			{
+  				ref.innerHTML="Emailid available"
+  				ref.style.color="green"
+  			}
+  			else
+  			{
+  				ref.innerHTML="Emailid already exists , please try with new"
+  				ref.style.color="red"
+  			}			
+  		
+  		}						  
+  }	
+}
+
+</script>
+
+
+<!-- start of main -->
+<div id="tooplate_main">
+    
+    <!-- start of content -->
+    <div id="tooplate_content">
+        <h2>Register page</h2>
+        <font color="blue" style="font-size:20px;"><%= output %></font>
+        <form method="post" action="/register"  >
+        <table cellspacing="10">
+        <tr>
+        <td>Name</td>
+        <td>
+        <input type="text" name="name" placeholder="Enter name"/>
+        </td>
+        </tr>
+        <tr>
+        <td>Email</td>
+        <td>
+        <input type="text" name="email" placeholder="Enter email" onkeyup="checkEmail(this.value)" />
+        </td>
+        <td id="response"></td>
+        </tr>
+        <tr>
+        <td>Password</td>
+        <td>
+        <input type="password" name="password" placeholder="Enter password"/>
+        </td>
+        </tr>
+        <tr>
+        <td>Address</td>
+        <td>
+        <textarea cols="31" rows="5" name="address" placeholder="Enter address"></textarea>
+        </td>
+        </tr>
+        <tr>
+        <td>Date of Birth</td>
+        <td>
+        <input type="text" id="datepicker" name="dob" placeholder="Enter DOB"/>
+        </td>
+        </tr>
+        <tr>
+        <td>Mobile</td>
+        <td>
+        <input type="text" name="mobile" placeholder="Enter mobile"/>
+        </td>
+        </tr>
+        <tr>
+        <tr>
+        <td>City</td>
+        <td>
+        <select style="width:250px;" name="city">
+        <option>Select city</option>
+        <optgroup label="Madhya Pradesh">
+        <option>Indore</option>
+        <option>Bhopal</option>
+        <option>Ujjain</option>
+        </optgroup>
+        <optgroup label="Maharastra">
+        <option>Mumbai</option>
+        <option>Pune</option>
+        <option>Nasik</option>
+        </optgroup>
+        </select>
+        </td>
+        </tr>
+        <tr>
+        <td>Gender</td>
+        <td>
+        <input type="radio" name="gender" value="male"/> Male
+        &nbsp;&nbsp;
+        <input type="radio" name="gender" value="female"/> Female
+        </td>
+        </tr>
+        <tr>
+        <td>
+        <input type="submit" value="Register"/> 
+        </td>
+        </tr>
+        </table>
+        </form>        
+
+        
+    </div>
+    <!-- end of content -->
+    
+
+    <!-- start of sidebar -->
+        <div id="tooplate_sidebar">
+        
+            <h2>Social Links</h2>
+            
+            <ul class="tooplate_list">
+            <li><a href="#">@Facebook</a></li>
+            <li><a href="#">@Twitter</a></li>
+            <li><a href="#">@Instagram</a></li>
+            <li><a href="#">@Gmail</a></li>
+            </ul>
+        </div>
+ 		<div class="cleaner"></div>
+         <!-- end of sidebar -->
+
+</div>
+<div class="cleaner"></div>  
+<!-- end of main -->
+
+<% include footer %>

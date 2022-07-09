@@ -1,0 +1,80 @@
+<% include adminheader %>
+
+<!-- start of main -->
+<div id="tooplate_main">
+
+    <h2>Edit Profile Here!!!</h2>
+        <font color="blue" style="font-size:20px;"><%= output %></font>
+        <form method="post" action="/admin/epadmin"  >
+        <table cellspacing="10">
+        <tr>
+        <td>Name</td>
+        <td>
+        <input type="text" name="name" value="<%= pDetails.name %>"/>
+        </td>
+        </tr>
+        <tr>
+        <td>Email</td>
+        <td>
+        <input type="text" readonly name="email"  onkeyup="checkEmail(this.value)" value="<%= pDetails.email %>"/>
+        </td>
+        <td id="response"></td>
+        </tr>
+        <tr>
+        <td>Address</td>
+        <td>
+        <textarea cols="31" rows="5" name="address" placeholder="Enter address"><%= pDetails.name %></textarea>
+        </td>
+        </tr>
+        <tr>
+        <td>Date of Birth</td>
+        <td>
+        <input type="text" id="datepicker" name="dob" value="<%= pDetails.dob %>"/>
+        </td>
+        </tr>
+        <tr>
+        <td>Mobile</td>
+        <td>
+        <input type="text" name="mobile" value="<%= pDetails.mobile %>"/>
+        </td>
+        </tr>
+        <tr>
+        <tr>
+        <td>City</td>
+        <td>
+        <select style="width:250px;" name="city">
+        <option><%= pDetails.city %></option>
+        <optgroup label="Madhya Pradesh">
+        <option>Indore</option>
+        <option>Bhopal</option>
+        <option>Ujjain</option>
+        </optgroup>
+        <optgroup label="Maharastra">
+        <option>Mumbai</option>
+        <option>Pune</option>
+        <option>Nasik</option>
+        </optgroup>
+        </select>
+        </td>
+        </tr>
+        <tr>
+        <td>Gender</td>
+        <td>
+        <input type="radio" name="gender" value="male" <%= m %> /> Male
+        &nbsp;&nbsp;
+        <input type="radio" name="gender" value="female" <%= f %> /> Female
+        </td>
+        </tr>
+        <tr>
+        <td>
+        <input type="submit" value="Update"/> 
+        </td>
+        </tr>
+        </table>
+        </form>        
+
+</div>
+<div class="cleaner"></div>  
+<!-- end of main -->
+
+<% include footer %>
